@@ -16,6 +16,10 @@ int main(int argc, char **argv) {
         } else {
             wait(&stat);
             printf("%d forks finished with status %d\n", i, WEXITSTATUS(stat));
+            if (WEXITSTATUS(stat) != 0) {
+                printf("Error: Child process exited with non-zero status\n");
+                exit(1);
+            }
         }
         
         i += 20;
