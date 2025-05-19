@@ -17,8 +17,7 @@ int main(int argc, char **argv) {
         if (pid < 0) {
             perror("fork");
             exit(1);
-        } else 
-        if (pid == 0) {
+        } else if (pid == 0) {
             execl("helloworld", "helloworld", argv[1], strI, NULL);
         }
     }
