@@ -24,8 +24,6 @@ int main(int argc, char **argv) {
 
     for (int i = 0; i < n; i++) {
         wait(&stat);
-        if (WEXITSTATUS(stat) != 0) {
-            exit(1);
-        }
+        if (WEXITSTATUS(stat) != 0) exit(1);
     }
 }

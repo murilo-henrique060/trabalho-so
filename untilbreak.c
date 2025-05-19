@@ -11,7 +11,10 @@ int main(int argc, char **argv) {
         sprintf(strI, "%d", i);
         
         pid = fork();
-        if (pid == 0) {
+        if (pid < 0) {
+            perror("fork");
+            exit(1);
+        } else if (pid == 0) {
             execl("forks", "forks", strI, NULL);
         } else {
             wait(&stat);
