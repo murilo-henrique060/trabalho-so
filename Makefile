@@ -3,7 +3,7 @@ CC = cc
 nall: clean all
 
 
-all: helloworld forks untilbreak
+all: helloworld forks
 
 
 helloworld: helloworld.c
@@ -12,8 +12,5 @@ helloworld: helloworld.c
 forks: forks.c
 	$(CC) -o forks forks.c
 
-untilbreak: untilbreak.c
-	$(CC) -o untilbreak untilbreak.c
-
 clean:
-	rm -f helloworld forks untilbreak
+	rm -f helloworld forks
