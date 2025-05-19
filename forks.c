@@ -19,5 +19,5 @@ int main(int argc, char **argv) {
     while (wait(NULL) > 0);
     
     printf("Number of forks: %d\n", i);
-    exit(0);
+    return 0;
 }
