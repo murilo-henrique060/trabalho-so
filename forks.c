@@ -14,7 +14,10 @@ int main(int argc, char **argv) {
 
         sprintf(strI, "%d", i);
         
-        if (pid == 0) {
+        if (pid < 0) {
+            perror("fork");
+            exit(1);
+        } else if (pid == 0) {
             execl("helloworld", "helloworld", argv[1], strI, NULL);
         }
     }
