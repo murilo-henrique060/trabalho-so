@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 int main(int argc, char **argv) {
-    int n, pid;
+    int n, pid, stat;
     char strI[1024];
 
     sscanf(argv[1], "%d", &n);
@@ -20,6 +20,9 @@ int main(int argc, char **argv) {
     }
 
     for (int i = 0; i < n; i++) {
-        wait(NULL);
+        wait(&stat);
+        if (WEXITSTATUS(stat) != 0) {
+            exit(1);
+        }
     }
 }
