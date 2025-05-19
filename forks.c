@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
 int main(int argc, char **argv) {
@@ -14,5 +16,8 @@ int main(int argc, char **argv) {
         i++;
     }
 
+    while (wait(NULL) > 0);
+    
     printf("Number of forks: %d\n", i);
+    exit(0);
 }
